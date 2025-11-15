@@ -1,0 +1,275 @@
+/* Colores de referencia */
+:root {
+    --color-maroon: #811e3b; 
+    --color-gold: #c39a5e;   
+    --color-title-bg: #e2e2e2;
+    --color-row-bg: #f8f8f8;
+    --color-row-alt: #ffffff;
+    --color-text: #333;
+    --color-white: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    /* CLAVE: Espacio para el encabezado fijo en móvil. */
+    padding-top: 50px; 
+}
+
+/* -------------------------------------- */
+/* AJUSTES EN VISTA MÓVIL (Por defecto)    */
+/* -------------------------------------- */
+
+/* --- Encabezado FIJO (Como en el video al deslizar) --- */
+.header-main {
+    position: fixed; /* Fijo en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: var(--color-white);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-top {
+    background-color: var(--color-maroon);
+    padding: 8px 15px; /* Más compacto en móvil */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 150px; 
+    max-width: 90%;
+    filter: brightness(0) invert(1);
+}
+
+/* Simulación de botón de menú (las tres barras) */
+.menu-button {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.menu-button span {
+    display: block;
+    height: 3px;
+    background-color: var(--color-white);
+    border-radius: 1px;
+}
+
+.header-bottom {
+    background-color: var(--color-gold);
+    padding: 5px 20px;
+    display: none; /* Ocultamos la barra dorada en móvil, como en el video */
+}
+
+/* Títulos: Visible en móvil, oculto en PC */
+.title-doc-mobile {
+    color: var(--color-text);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0;
+    padding: 10px 20px;
+}
+.title-doc-desktop {
+    display: none; /* Oculto en móvil */
+}
+
+/* Contenedor principal de datos (Caja blanca) */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--color-white);
+    padding-top: 5px; /* Pequeño espacio debajo del título */
+}
+
+/* Estilos de tabla (Filas) */
+.section-title {
+    background-color: var(--color-title-bg);
+    color: var(--color-text);
+    font-weight: bold;
+    padding: 8px 20px;
+    margin-top: 15px;
+    font-size: 1em;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.data-row {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #eee;
+    background-color: var(--color-row-alt);
+}
+.data-row:nth-child(even) {
+    background-color: var(--color-row-bg);
+}
+.label-box {
+    width: 100%; 
+    padding: 5px 20px 0 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+.value-box {
+    width: 100%; 
+    padding: 0 20px 5px 20px;
+    font-weight: bold;
+    color: #000;
+    font-size: 1em;
+}
+.result-row {
+    background-color: #d1f3cc !important;
+    border-bottom: 1px solid #b5d5b0;
+    font-weight: bold;
+}
+
+
+/* --- FOOTER GUINDA (Móvil: 100% ancho) --- */
+.footer-main {
+    background-color: var(--color-maroon);
+    color: var(--color-white);
+    padding: 20px 0 30px 0;
+    margin-top: 20px;
+    width: 100%;
+}
+.footer-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.footer-logo {
+    width: 150px;
+    margin-bottom: 15px;
+    filter: brightness(0) invert(1);
+}
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 0;
+}
+.footer-links a, .footer-denuncia {
+    color: var(--color-white);
+    text-decoration: none;
+    font-size: 1em;
+}
+.footer-denuncia {
+    display: block;
+    text-decoration: underline;
+    padding: 15px 0 25px 0;
+}
+.footer-social {
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+.footer-social p { margin: 5px 0; font-weight: bold; }
+.social-icons { font-size: 1.5em; display: flex; gap: 10px; margin-bottom: 20px; }
+.footer-contact { display: flex; align-items: center; gap: 10px; }
+.contact-number { font-size: 2em; font-weight: bold; }
+.footer-contact p { margin: 0; font-size: 0.8em; }
+
+
+/* -------------------------------------- */
+/* MEDIA QUERY: AJUSTES PARA PANTALLAS GRANDES (PC/TABLET) */
+/* -------------------------------------- */
+@media (min-width: 650px) {
+
+    /* Reseteamos el padding del body y añadimos margen para centrar el diseño */
+    body {
+        padding-top: 0;
+        padding: 40px 0;
+        background-color: #f4f4f4;
+    }
+
+    /* Contenedor que simula la hoja de documento centrada */
+    .main-document-box {
+        max-width: 600px;
+        margin: 0 auto;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        background-color: var(--color-white);
+        padding-bottom: 40px; /* Espacio al final del contenido */
+    }
+
+    /* Encabezado: Lo hacemos NO-FIJO en PC y lo encerramos en el main-document-box */
+    .header-main {
+        position: relative;
+        box-shadow: none;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    .header-top {
+        background-color: var(--color-maroon);
+        padding: 15px 40px; /* Más padding en PC */
+        justify-content: flex-start; /* Logo a la izquierda */
+    }
+    .menu-button {
+        display: none; /* Ocultamos el botón de menú en PC */
+    }
+    .logo {
+        width: 180px; 
+    }
+
+    /* Barra Dorada: Aparece en PC */
+    .header-bottom {
+        display: block; 
+        background-color: var(--color-gold);
+        padding: 12px 0;
+    }
+    .title-doc-mobile {
+        display: none;
+    }
+
+    /* Título: Aparece al centro del documento */
+    .title-doc-desktop {
+        display: block; /* Visible en PC */
+        font-size: 1.4em;
+        font-weight: normal;
+        color: var(--color-text);
+        padding: 40px 40px 10px 40px;
+        margin: 0;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Contenedor principal de datos */
+    .container {
+        padding: 0; /* Quitamos el padding del container ya que las filas lo tienen */
+    }
+    
+    /* Filas de Datos en PC: Las etiquetas y valores van lado a lado */
+    .data-row {
+        flex-wrap: nowrap; /* No se envuelven */
+        border-bottom: 1px solid #ddd;
+    }
+    .label-box {
+        width: 40%; 
+        padding: 10px 0 10px 40px; /* Más padding lateral */
+        font-weight: bold;
+        color: #000;
+    }
+    .value-box {
+        width: 60%;
+        padding: 10px 40px 10px 0;
+        text-align: right;
+    }
+
+    /* --- FOOTER GUINDA (Centrado con la caja del documento) --- */
+    .footer-main {
+        max-width: 600px;
+        margin: 20px auto 40px auto; /* Centrado y con margen alrededor */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra para simular caja */
+        padding: 40px 0;
+        border-radius: 0 0 5px 5px; /* Bordes redondeados inferiores si fuera necesario */
+    }
+    .footer-content {
+        padding: 0 40px; /* Más padding lateral */
+    }
+    .footer-links a, .footer-denuncia {
+        font-size: 1.1em;
+    }
+}
